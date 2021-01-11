@@ -48,6 +48,7 @@ the buffer is visible, then set another timer and try again later."
     (and (or (buffer-file-name buffer)
              (if-let (base-buffer (buffer-base-buffer buffer))
                  (buffer-file-name base-buffer)))
+         (not org-capture-mode)
          (buffer-modified-p buffer)
          (let ((autosave (+popup-parameter 'autosave window)))
            (cond ((eq autosave 't))
